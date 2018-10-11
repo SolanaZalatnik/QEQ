@@ -1,0 +1,19 @@
+﻿@using QEQ.Models
+@model Usuarios
+@{
+    ViewBag.Title = "ValidarAdmin";
+}
+
+<h2>Ingrese la Contraseña para ser administrador</h2>
+<form method="post" action='@Url.Action("VerificarPin", "Home")'>
+    @Html.HiddenFor(x => x.IDUsuario)
+    @Html.HiddenFor(x => x.NombUsuario) <br />
+    @Html.HiddenFor(x => x.Nombre) <br />
+    @Html.HiddenFor(x => x.Apellido) <br />
+    @Html.HiddenFor(x => x.Administrador) <br />
+    @Html.HiddenFor(x => x.Contraseña) <br />
+    <input type='password' name="pin" />
+    <input type='submit' value=Validar />
+</form>
+
+

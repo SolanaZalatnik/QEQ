@@ -1,0 +1,11 @@
+﻿@using QEQ.Models
+@model Usuarios
+
+@{
+    ViewBag.Title = "LoginUs";
+}
+
+<h2>Iniciar Sesión</h2>
+
+<p>Nombre</p> @Html.TextBoxFor(x => x.Nombre, (Object)ViewBag.Disabled) @Html.ValidationMessageFor(x => x.Nombre) <br />
+<p>Contraseña</p> @Html.TextBoxFor(x => x.Apellido, (Object)ViewBag.Disabled) @Html.ValidationMessageFor(x => x.Apellido) <br />
