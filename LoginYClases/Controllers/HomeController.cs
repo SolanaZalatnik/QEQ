@@ -21,8 +21,9 @@ namespace  QEQ.Controllers
             return View();
         }
 
-        public ActionResult EditarRegistrar(Usuarios x)
+        public ActionResult EditarRegistrar(Usuarios x, string Accion)
         {
+            ViewBag.CrearoEditar = Accion;
             return View();
         }
         public ActionResult VerificarPin(int pin, Usuarios x)
@@ -40,7 +41,7 @@ namespace  QEQ.Controllers
                     nombre = BD.BuscarUsuario(x.NombUsuario);
                     if (nombre != x.NombUsuario)
                     {
-                        Usuarios y = BD.InsertarUsuario(x);
+                        BD.InsertarUsuario(x);
                         return View("Inicio");
                     }
                     else
@@ -82,7 +83,7 @@ namespace  QEQ.Controllers
                         nombre = BD.BuscarUsuario(x.NombUsuario);
                         if (nombre != x.NombUsuario)
                         {
-                            Usuarios y = BD.InsertarUsuario(x);
+                            BD.InsertarUsuario(x);
                             return View("Inicio");
                         }
                         else

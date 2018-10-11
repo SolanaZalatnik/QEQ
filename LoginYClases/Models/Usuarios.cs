@@ -27,9 +27,8 @@ namespace QEQ.Models
         [StringLength(100, MinimumLength = 1, ErrorMessage = "Apellido inválido")]
         public string Apellido { get => _Apellido; set => _Apellido = value; }
         [Required(ErrorMessage = "Campo obligatorio")]
-        [StringLength(100, MinimumLength = 1, ErrorMessage = "Contraseña inválido")]
+        //[StringLength(100, MinimumLength = 1, ErrorMessage = "Contraseña inválido")]
         public string Contraseña { get => _Contraseña; set => _Contraseña = value; }
-        [Required(ErrorMessage = "Campo obligatorio")]
         public bool Administrador { get => _Administrador; set => _Administrador = value; }
         public int Puntaje { get => _Puntaje; set => _Puntaje = value; }
 
