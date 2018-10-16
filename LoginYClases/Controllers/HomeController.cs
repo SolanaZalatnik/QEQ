@@ -14,15 +14,16 @@ namespace  QEQ.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult About(string Accion)
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult EditarRegistrar(Usuarios x)
+        public ActionResult EditarRegistrar(Usuarios x, string Accion)
         {
+            ViewBag.CrearoEditar = Accion;
             return View();
         }
 
@@ -41,7 +42,7 @@ namespace  QEQ.Controllers
                     nombre = BD.BuscarUsuario(x.NombUsuario);
                     if (nombre != x.NombUsuario)
                     {
-                        Usuarios y = BD.InsertarUsuario(x);
+                        BD.InsertarUsuario(x);
                         return View("Inicio");
                     }
                     else
@@ -83,7 +84,7 @@ namespace  QEQ.Controllers
                         nombre = BD.BuscarUsuario(x.NombUsuario);
                         if (nombre != x.NombUsuario)
                         {
-                            Usuarios y = BD.InsertarUsuario(x);
+                            BD.InsertarUsuario(x);
                             return View("Inicio");
                         }
                         else
@@ -135,6 +136,10 @@ namespace  QEQ.Controllers
         {
             return View();
         }
+        public ActionResult Instrucciones(string Accion)
+        {
+            return View();
+        }
 
         public ActionResult VerCategorias()
         {
@@ -157,4 +162,3 @@ namespace  QEQ.Controllers
         }
     }
 }
-

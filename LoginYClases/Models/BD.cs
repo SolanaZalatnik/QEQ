@@ -42,7 +42,37 @@ namespace QEQ.Models
                 return false;
             }
         }
-
+        public static int InsertarUsuario(Usuarios x)
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandText = "sp_InsertarUsuario";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@pNombUsuario", x.NombUsuario);
+            Consulta.Parameters.AddWithValue("@pApellido", x.Apellido);
+            Consulta.Parameters.AddWithValue("@pNombre", x.Nombre);
+            Consulta.Parameters.AddWithValue("@pAdministrador", x.Administrador);
+            Consulta.Parameters.AddWithValue("@pContraseña", x.Contraseña);
+            int regsAfectados = Consulta.ExecuteNonQuery();
+            Desconectar(Conexion);
+            return regsAfectados;
+        }
+        public static string BuscarUsuario(string nom)
+        {
+            string NombreUsuario = "";
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandText = "sp_BuscarUsuario";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@pUsuario", nom);
+            SqlDataReader DataReader = Consulta.ExecuteReader();
+            if (DataReader.Read())
+            {
+                NombreUsuario = (DataReader["NombUsuario"]).ToString();
+            }
+            Desconectar(Conexion);
+            return NombreUsuario;
+        }
         public static Usuarios TraerUs(string NombUsu)
         {
             SqlConnection Coneccion = Conectar();
@@ -68,6 +98,21 @@ namespace QEQ.Models
                 Desconectar(Coneccion);
                 return null;
             }
+		}
+        public static int ModificarUsuario(Usuarios x)
+        {
+            SqlConnection Conexion = Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandText = "sp_ModificarUsuario";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.Parameters.AddWithValue("@pNombUsuario", x.NombUsuario);
+            Consulta.Parameters.AddWithValue("@pApellido", x.Apellido);
+            Consulta.Parameters.AddWithValue("@pNombre", x.Nombre);
+            Consulta.Parameters.AddWithValue("@pAdministrador", x.Administrador);
+            Consulta.Parameters.AddWithValue("@pContraseña", x.Contraseña);
+            int regsAfectados = Consulta.ExecuteNonQuery();
+            Desconectar(Conexion);
+            return regsAfectados;
         }
     }
 }
