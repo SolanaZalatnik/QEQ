@@ -14,7 +14,7 @@ namespace  QEQ.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult About(string Accion)
         {
             ViewBag.Message = "Your application description page.";
 
@@ -98,7 +98,12 @@ namespace  QEQ.Controllers
         }
 
 
-        
+        public ActionResult Instrucciones(string Accion)
+        {
+            return View();
+        }
+
+
 
         public ActionResult LoginUs()
         {
