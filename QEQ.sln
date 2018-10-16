@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QEQ", "LoginYClases\QEQ.csproj", "{E971A9B6-2D57-4544-BDF2-6343E30E24BB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QEQ", "QEQ\QEQ.csproj", "{D10D2B25-AC38-4895-9523-4E52AE00201D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E971A9B6-2D57-4544-BDF2-6343E30E24BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E971A9B6-2D57-4544-BDF2-6343E30E24BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E971A9B6-2D57-4544-BDF2-6343E30E24BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E971A9B6-2D57-4544-BDF2-6343E30E24BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D10D2B25-AC38-4895-9523-4E52AE00201D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D10D2B25-AC38-4895-9523-4E52AE00201D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D10D2B25-AC38-4895-9523-4E52AE00201D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D10D2B25-AC38-4895-9523-4E52AE00201D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {852CADA5-4946-4F1B-A293-5DABECD86914}
+		SolutionGuid = {31C71E22-38D2-44B3-8959-FE5FBD6BBD28}
 	EndGlobalSection
 EndGlobal

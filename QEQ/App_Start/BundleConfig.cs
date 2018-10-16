@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace LoginYClases
+namespace QEQ
 {
     public class BundleConfig
     {

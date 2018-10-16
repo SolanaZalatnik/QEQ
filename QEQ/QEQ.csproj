@@ -8,12 +8,12 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{E971A9B6-2D57-4544-BDF2-6343E30E24BB}</ProjectGuid>
+    <ProjectGuid>{D10D2B25-AC38-4895-9523-4E52AE00201D}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>LoginYClases</RootNamespace>
-    <AssemblyName>LoginYClases</AssemblyName>
+    <RootNamespace>QEQ</RootNamespace>
+    <AssemblyName>QEQ</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -145,12 +145,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\RouteConfig2.cs" />
-    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -205,21 +201,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\LoginUs.cshtml" />
-    <Content Include="Views\Home\ValidarAdmin.cshtml" />
-    <Content Include="Views\Home\EditarRegistrar.cshtml" />
-<<<<<<< HEAD
-    <Content Include="Views\Home\Instrucciones.cshtml" />
-    <Content Include="Views\Game\Inicio.cshtml" />
-=======
-    <Content Include="Views\Home\InicarJuego.cshtml" />
-    <Content Include="Views\Home\HomeBackOffice.cshtml" />
-    <Content Include="Views\Home\VerPersonajes.cshtml" />
-    <Content Include="Views\Home\VerCategorias.cshtml" />
-    <Content Include="Views\Home\VerPreguntas.cshtml" />
-    <Content Include="Views\Home\VerUsuarios.cshtml" />
-    <Content Include="Views\Home\VerRanking.cshtml" />
->>>>>>> c61828964c3f30f4cc7776d73ee9a22d8e624046
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -253,9 +234,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>56447</DevelopmentServerPort>
+          <DevelopmentServerPort>56489</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:56447/</IISUrl>
+          <IISUrl>http://localhost:56489/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
