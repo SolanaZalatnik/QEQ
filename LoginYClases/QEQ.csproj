@@ -208,8 +208,18 @@
     <Content Include="Views\Home\LoginUs.cshtml" />
     <Content Include="Views\Home\ValidarAdmin.cshtml" />
     <Content Include="Views\Home\EditarRegistrar.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Instrucciones.cshtml" />
     <Content Include="Views\Game\Inicio.cshtml" />
+=======
+    <Content Include="Views\Home\InicarJuego.cshtml" />
+    <Content Include="Views\Home\HomeBackOffice.cshtml" />
+    <Content Include="Views\Home\VerPersonajes.cshtml" />
+    <Content Include="Views\Home\VerCategorias.cshtml" />
+    <Content Include="Views\Home\VerPreguntas.cshtml" />
+    <Content Include="Views\Home\VerUsuarios.cshtml" />
+    <Content Include="Views\Home\VerRanking.cshtml" />
+>>>>>>> c61828964c3f30f4cc7776d73ee9a22d8e624046
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
