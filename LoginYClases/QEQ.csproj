@@ -204,6 +204,13 @@
     <Content Include="Views\Home\LoginUs.cshtml" />
     <Content Include="Views\Home\ValidarAdmin.cshtml" />
     <Content Include="Views\Home\EditarRegistrar.cshtml" />
+    <Content Include="Views\Home\InicarJuego.cshtml" />
+    <Content Include="Views\Home\HomeBackOffice.cshtml" />
+    <Content Include="Views\Home\VerPersonajes.cshtml" />
+    <Content Include="Views\Home\VerCategorias.cshtml" />
+    <Content Include="Views\Home\VerPreguntas.cshtml" />
+    <Content Include="Views\Home\VerUsuarios.cshtml" />
+    <Content Include="Views\Home\VerRanking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

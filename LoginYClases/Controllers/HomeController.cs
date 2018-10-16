@@ -9,7 +9,7 @@ namespace  QEQ.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+       /* public ActionResult Index()
         {
             return View();
         }
@@ -25,6 +25,7 @@ namespace  QEQ.Controllers
         {
             return View();
         }
+
         public ActionResult VerificarPin(int pin, Usuarios x)
         {
             if (pin == 1234)
@@ -94,24 +95,66 @@ namespace  QEQ.Controllers
                     }
                 }
             }
-        }
-
-
+        }    
+        */
         
-
         public ActionResult LoginUs()
         {
             return View();
         }
 
-        public ActionResult LoginUs2(Usuarios x)
+        [HttpPost]
+        public ActionResult LoginUs2(string NombUsuario , string Contraseña)
         {
+            ViewBag.Usuario = BD.TraerUs(NombUsuario);//tira error
+            ViewBag.RespuestaIn = BD.LoginUs(NombUsuario, Contraseña);
+            if (ViewBag.RespuestaIn ==  true)
+            {
+                if (ViewBag.Usuraio.Administrador == true)
+                {
+                    return View("HomeBackOffice");
+                }
+                else
+                {
+                    return View("IniciarJuego");
+                }
+            }
+            else
+            {
+                ViewBag.UsIncorrecto = "Usuario incorrecto.";
+                return View("LoginUs");
+            }
+        }
 
-            ViewBag.RespuestaIn = BD.LoginUs(x.NombUsuario, x.Contraseña);
-            //if ()
+        public ActionResult HomeBackOffice()
+        {
             return View();
         }
 
+        public ActionResult VerPersonajes()
+        {
+            return View();
+        }
+
+        public ActionResult VerCategorias()
+        {
+            return View();
+        }
+
+        public ActionResult VerUsuarios()
+        {
+            return View();
+        }
+
+        public ActionResult VerPreguntas()
+        {
+            return View();
+        }
+
+        public ActionResult VerRanking()
+        {
+            return View();
+        }
     }
 }
 
