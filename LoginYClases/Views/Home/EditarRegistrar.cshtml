@@ -4,7 +4,7 @@
     ViewBag.Title = "EditarRegistrar";
 }
 
-<h2>Usuarios</h2>
+
 <h3>@ViewBag.Error</h3>
 <form method="post" action='@Url.Action("ValidarDatos", "Home")'>
     @Html.HiddenFor(x => x.IDUsuario)

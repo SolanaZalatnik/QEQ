@@ -14,18 +14,21 @@ namespace  QEQ.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult About(string Accion)
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
 
-        public ActionResult EditarRegistrar(Usuarios x, string Accion)
+        public ActionResult EditarRegistrar(string Accion)
         {
+            ViewBag.Error = "";
             ViewBag.CrearoEditar = Accion;
-            return View();
+            Usuarios x = ViewBag.Usuario;
+            return View("EditarRegistrar", x);
         }
+
         public ActionResult VerificarPin(int pin, Usuarios x)
         {
             if (pin == 1234)
@@ -72,7 +75,7 @@ namespace  QEQ.Controllers
                 }
                 else
                 {
-                    if (ViewBag.CrearoEditar = "Editar")
+                    if (ViewBag.CrearoEditar == "Editar")
                     {
                         BD.ModificarUsuario(x);
                         return View("Inicio");
@@ -98,7 +101,12 @@ namespace  QEQ.Controllers
         }
 
 
-        
+        public ActionResult Instrucciones(string Accion)
+        {
+            return View();
+        }
+
+
 
         public ActionResult LoginUs()
         {
