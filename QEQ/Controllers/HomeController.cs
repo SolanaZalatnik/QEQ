@@ -16,9 +16,7 @@ namespace  QEQ.Controllers
 
         public ActionResult About(string Accion)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+           return View();
         }
         public ActionResult EditarRegistrar(string Accion, string NombreUsuario)
         {
@@ -125,7 +123,7 @@ namespace  QEQ.Controllers
                     }
                     else
                     {
-                        Session["EsAdmin"] = false;
+                        Session["EsAdmin"] = null;
                         Session["NombreUsuario"] = x.NombUsuario;
                         return View("Index");
                     }

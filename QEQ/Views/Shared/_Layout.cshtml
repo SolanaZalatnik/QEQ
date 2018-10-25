@@ -17,11 +17,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nombre de aplicación", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("Quien es Quien", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Instrucciones", "Instrucciones", "Home")</li>
                     <li>@Html.ActionLink((Session["NombreUsuario"] != null ? "Logout" : "Login"), (Session["NombreUsuario"] != null ? "Logout" : "LoginUs"), "Home")</li>
 
                 </ul>
@@ -39,5 +40,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+    <img id="Fondo" />
 </body>
 </html>

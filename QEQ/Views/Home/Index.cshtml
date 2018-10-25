@@ -1,7 +1,5 @@
 ﻿
 @{
-
-
     ViewBag.Title = "Home Page";
 }
 <style>
@@ -18,29 +16,65 @@
         font-family: 'Gill Sans MT';
         background-color: #FFD4FD;
     }
+
+    #Boton1 a {
+        margin-top: 0px;
+        margin-left: 400px;
+        font-family: pacifico;
+        box-shadow: 0 -3px 0 0 rgba(0,0,0,.15) inset;
+        color: #eb670f;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+        text-align: center;
+        background-color: #FFD4FD;
+        position: relative;
+        min-width: 250px;
+        height: 70px;
+        font-weight: 700;
+        font-size: 30px;
+        border-radius: 30px;
+  
+    }
+
+    #Boton2 a {
+        margin-top: 0px;
+        margin-left: 400px;
+        font-family: pacifico;
+        box-shadow: 0 -3px 0 0 rgba(0,0,0,.15) inset;
+        color: #eb670f;
+        text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+        text-align: center;
+        background-color: #FFD4FD;
+        position: absolute;
+        min-width: 250px;
+        height: 70px;
+        font-weight: 600;
+        font-size: 30px;
+        border-radius: 30px;
+    }
+    Boton1 a p{
+        position: absolute;
+        padding-top:40%;
+    }
+    Boton2 a p {
+        position: absolute;
+        padding-top: 40%;
+    }
 </style>
 
 
 <h2 class="QEQ">QUIEN ES QUIEN</h2>
 
-<h6 id="Boton">@Html.ActionLink("Registrarse", "EditarRegistrar", "Home", new { Accion = "Registrar", NombreUsuario = "" }, null)</h6>
-<br />
-@{ if (Session["NombreUsuario"] != null)
+@{ if (Session["NombreUsuario"] == null)
+    {
+        <h6 id="Boton">@Html.ActionLink("Registrarse", "EditarRegistrar", "Home", new { Accion = "Registrar", NombreUsuario = "" }, null)</h6>
+        <br />
+        <h6 id="Boton1">@Html.ActionLink("Iniciar juego como invitado", "Index", "Game", new { Accion = "vas a jugar como invitado" }, null)</h6><br />
+    }
+    else
     {
 
-        <h6 id="Boton">@Html.ActionLink("Editar", "EditarRegistrar", "Home", new { Accion = "Editar", NombreUsuario = (Session["NombreUsuario"] != null ? Session["NombreUsuario"] : "") }, null)</h6>
+        <h6 id="Boton">@Html.ActionLink("Editar mi usuario", "EditarRegistrar", "Home", new { Accion = "Editar", NombreUsuario = (Session["NombreUsuario"] != null ? Session["NombreUsuario"] : "") }, null)</h6>
         <br />
+        <h6 id="Boton2">@Html.ActionLink("Iniciar Juego", "Index", "Game", new { Accion = "vas a jugar como " + Session["NombreUsuario"] }, null)</h6><br />
     }
 }
-
-<h6 id="Boton">@Html.ActionLink("About", "About", "Home", new { Accion = "About" }, null)</h6>
-<br />
-
-<h6 id="Boton">@Html.ActionLink("Instrucciones", "Instrucciones", "Home", new { Accion = "Inst" }, null)</h6>
-<br />
-<h6 id="Boton">@Html.ActionLink("Iniciar juego como invitado", "Index", "Game", new { Accion = "vas a jugar como invitado" }, null)</h6><br />
-@{ if (Session["NombreUsuario"] != null)
-        {
-        <h6 id="Boton">@Html.ActionLink("Iniciar Juego", "Index", "Game", new { Accion = "vas a jugar como " + Session["NombreUsuario"]  }, null)</h6><br />
-        }
-    }
