@@ -17,17 +17,13 @@ namespace QEQ.Models
         private int _Puntaje;
 
         public int IDUsuario { get => _IDUsuario; set => _IDUsuario = value; }
-        [Required(ErrorMessage = "Campo obligatorio")]
+        [Required(ErrorMessage = "Nombre de Usuario es un Campo obligatorio")]
         [StringLength(100, MinimumLength = 1, ErrorMessage = "Nombre de usuario inválido")]
         public string NombUsuario { get => _NombUsuario; set => _NombUsuario = value; }
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [StringLength(100, MinimumLength = 1, ErrorMessage = "Nombre inválido")]
         public string Nombre { get => _Nombre; set => _Nombre = value; }
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [StringLength(100, MinimumLength = 1, ErrorMessage = "Apellido inválido")]
         public string Apellido { get => _Apellido; set => _Apellido = value; }
-        [Required(ErrorMessage = "Campo obligatorio")]
-        //[StringLength(100, MinimumLength = 1, ErrorMessage = "Contraseña inválido")]
+        [Required(ErrorMessage = "Contraseña es un Campo obligatorio")]
+        [StringLength(100, MinimumLength = 1, ErrorMessage = "Contraseña inválida")]
         public string Contraseña { get => _Contraseña; set => _Contraseña = value; }
         public bool Administrador { get => _Administrador; set => _Administrador = value; }
         public int Puntaje { get => _Puntaje; set => _Puntaje = value; }

@@ -1,12 +1,22 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "HomeBackOffice";
 }
+<style>
+    #boton a {
+        background-color: #ffd4fd;
+        padding: 5px;
+        border-color: black;
+    }
+</style>
+<link rel="stylesheet" type="text/css" href="~/Content/Diseño.css">
+<h2>Home Back Office</h2>
+<div id="boton">
+    <a href="@Url.Action("VerPersonajes", "Home")"> Ver personajes </a> <br /><br /><br />
+    <a href="@Url.Action("VerCategorias", "Home")"> Ver categorias </a> <br /><br /><br />
+    <a href="@Url.Action("VerPreguntas", "Home")"> Ver preguntas </a> <br /><br /><br />
+    <a href="@Url.Action("VerUsuarios", "Home")"> Ver usuarios </a> <br /><br /><br />
+    <a href="@Url.Action("VerRanking", "Home")"> Ver ranking </a> <br /><br /><br />
+    <h6>@Html.ActionLink("Editar", "EditarRegistrar", "Home", new { Accion = "Editar", NombreUsuario = (Session["NombreUsuario"] != null ? Session["NombreUsuario"] : "") }, null)</h6> <br /><br /><br />
+   
+</div>
 
-<h2>Administrador</h2>
-
-<a href="@Url.Action("VerPersonajes", "Home")"> Ver personajes </a> <br />
-<a href="@Url.Action("VerCategorias", "Home")"> Ver categorias </a> <br />
-<a href="@Url.Action("VerPreguntas", "Home")"> Ver preguntas </a> <br />
-<a href="@Url.Action("VerUsuarios", "Home")"> Ver usuarios </a> <br />
-<a href="@Url.Action("VerRanking", "Home")"> Ver ranking </a>

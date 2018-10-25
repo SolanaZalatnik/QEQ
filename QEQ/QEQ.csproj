@@ -147,6 +147,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -167,6 +168,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Diseño.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -201,6 +203,19 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\EditarRegistrar.cshtml" />
+    <Content Include="Views\Home\HomeBackOffice.cshtml" />
+    <Content Include="Views\Home\InicarJuego.cshtml" />
+    <Content Include="Views\Home\Instrucciones.cshtml" />
+    <Content Include="Views\Home\LoginUs.cshtml" />
+    <Content Include="Views\Home\ValidarAdmin.cshtml" />
+    <Content Include="Views\Home\VerCategorias.cshtml" />
+    <Content Include="Views\Home\VerPersonajes.cshtml" />
+    <Content Include="Views\Home\VerPreguntas.cshtml" />
+    <Content Include="Views\Home\VerRanking.cshtml" />
+    <Content Include="Views\Home\VerUsuarios.cshtml" />
+    <Content Include="Views\Game\Inicio.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -20,23 +20,31 @@ namespace  QEQ.Controllers
 
             return View();
         }
-
-        public ActionResult EditarRegistrar(string Accion)
+        public ActionResult EditarRegistrar(string Accion, string NombreUsuario)
         {
             ViewBag.Error = "";
             ViewBag.CrearoEditar = Accion;
-            Usuarios x = ViewBag.Usuario;
+            Usuarios x;
+            if (NombreUsuario != null)
+            {
+                x = BD.TraerUs(NombreUsuario);
+            }
+            else
+            {
+                x = new Usuarios();
+            }
+
             return View("EditarRegistrar", x);
         }
 
-        public ActionResult VerificarPin(int pin, Usuarios x)
+        public ActionResult VerificarPin(int pin, Usuarios x, string Accion)
         {
             if (pin == 1234)
             {
-                if (ViewBag.CrearoEditar = "Editar")
+                if (Accion == "Editar")
                 {
                     BD.ModificarUsuario(x);
-                    return View("Inicio");
+                    return View("Index");
                 }
                 else
                 {
@@ -45,7 +53,7 @@ namespace  QEQ.Controllers
                     if (nombre != x.NombUsuario)
                     {
                         BD.InsertarUsuario(x);
-                        return View("Inicio");
+                        return View("Index");
                     }
                     else
                     {
@@ -61,24 +69,20 @@ namespace  QEQ.Controllers
             }
         }
 
-        public ActionResult ValidarDatos(Usuarios x)
+        public ActionResult ValidarDatos(Usuarios x, string Accion)
         {
-            if (!ModelState.IsValid)
-            {
-                return View("EditarRegistrar");
-            }
-            else
-            {
+            ViewBag.CrearoEditar = Accion;
+         
                 if (x.Administrador == true)
                 {
                     return View("ValidarAdmin", x);
                 }
                 else
                 {
-                    if (ViewBag.CrearoEditar == "Editar")
-                    {
+                    if (Accion == "Editar")
+                    { 
                         BD.ModificarUsuario(x);
-                        return View("Inicio");
+                        return View("Index");
                     }
                     else
                     {
@@ -87,15 +91,13 @@ namespace  QEQ.Controllers
                         if (nombre != x.NombUsuario)
                         {
                             BD.InsertarUsuario(x);
-                            return View("Inicio");
+                            return View("Index");
                         }
                         else
                         {
                             ViewBag.Error = "USUARIO EXISTENTE";
                             return View("EditarRegistrar");
                         }
-
-                    }
                 }
             }
         }    
@@ -107,27 +109,39 @@ namespace  QEQ.Controllers
         }
 
         [HttpPost]
-        public ActionResult LoginUs2(string NombUsuario , string Contraseña)
+        public ActionResult LoginUs2(Usuarios x)
         {
-            ViewBag.Usuario = BD.TraerUs(NombUsuario);//tira error
-            ViewBag.RespuestaIn = BD.LoginUs(NombUsuario, Contraseña);
-            if (ViewBag.RespuestaIn ==  true)
+           if (ModelState.IsValid)
             {
-                if (ViewBag.Usuraio.Administrador == true)
+                if (BD.LoginUs(x.NombUsuario, x.Contraseña) == true)
                 {
-                    return View("HomeBackOffice");
+                    ViewBag.Usuario = BD.TraerUs(x.NombUsuario);
+                    if (ViewBag.Usuario.Administrador == true)
+                    {
+                        //va session
+                        Session["EsAdmin"] = true;
+                        Session["NombreUsuario"] = x.NombUsuario;
+                        return RedirectToAction("HomeBackOffice");
+                    }
+                    else
+                    {
+                        Session["EsAdmin"] = false;
+                        Session["NombreUsuario"] = x.NombUsuario;
+                        return View("Index");
+                    }
                 }
                 else
                 {
-                    return View("IniciarJuego");
+                    ViewBag.UsIncorrecto = "Usuario incorrecto.";
+                    return View("LoginUs");
                 }
             }
-            else
+           else
             {
-                ViewBag.UsIncorrecto = "Usuario incorrecto.";
                 return View("LoginUs");
             }
         }
+
         public ActionResult Instrucciones(string Accion)
         {
             return View();
@@ -135,12 +149,27 @@ namespace  QEQ.Controllers
 
         public ActionResult HomeBackOffice()
         {
-            return View();
+            if (Session["EsAdmin"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return View("LoginUs");
+            }
+
         }
 
         public ActionResult VerPersonajes()
         {
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session["EsAdmin"] = null;
+            Session["NombreUsuario"] = null;
+            return View("Index");
         }
 
         public ActionResult VerCategorias()

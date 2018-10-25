@@ -24,6 +24,9 @@ namespace QEQ.Models
 
         public static bool LoginUs(string NombreUs, string Pass)
         {
+            NombreUs = (NombreUs == null ? "" : NombreUs); //Es un if
+            Pass = (Pass == null ? "" : Pass); //Es un if
+            bool Correct = false;
             SqlConnection Coneccion = Conectar();
             SqlCommand Consulta = Coneccion.CreateCommand();
             Consulta.CommandText = "sp_Login";
@@ -33,14 +36,10 @@ namespace QEQ.Models
             SqlDataReader Lector = Consulta.ExecuteReader();
             if (Lector.Read())
             {
-                Desconectar(Coneccion);
-                return true;
+                Correct = true;
             }
-            else
-            {
-                Desconectar(Coneccion);
-                return false;
-            }
+            Desconectar(Coneccion);
+            return Correct;
         }
         public static int InsertarUsuario(Usuarios x)
         {
@@ -108,7 +107,7 @@ namespace QEQ.Models
             Consulta.Parameters.AddWithValue("@pNombUsuario", x.NombUsuario);
             Consulta.Parameters.AddWithValue("@pApellido", x.Apellido);
             Consulta.Parameters.AddWithValue("@pNombre", x.Nombre);
-            Consulta.Parameters.AddWithValue("@pAdministrador", x.Administrador);
+            Consulta.Parameters.AddWithValue("@pAdministrar", x.Administrador);
             Consulta.Parameters.AddWithValue("@pContraseña", x.Contraseña);
             int regsAfectados = Consulta.ExecuteNonQuery();
             Desconectar(Conexion);

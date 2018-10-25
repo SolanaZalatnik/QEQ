@@ -7,8 +7,16 @@
 
 <h2>Iniciar Sesión</h2>
 
-<form action="@Url.Action("LoginUs2", "Home")" method="post">
-    <p>Nombre usuario</p> @Html.TextBoxFor(x => x.NombUsuario, (Object)ViewBag.Disabled) @Html.ValidationMessageFor(x => x.Nombre) <br />
-    <p>Contraseña</p> @Html.PasswordFor(x => x.Contraseña, (Object)ViewBag.Disabled) @Html.ValidationMessageFor(x => x.Apellido) <br />
-    <input type="submit" value="Submit">
-</form>
+@using (Html.BeginForm("LoginUs2", "Home", FormMethod.Post))
+{
+    if (ViewBag.UsIncorrecto!=null)
+    {
+        <h1>@ViewBag.UsIncorrecto</h1>
+    }
+    
+    <p>Nombre usuario</p> @Html.TextBoxFor(x => x.NombUsuario) @Html.ValidationMessageFor(x => x.NombUsuario) <br /> <br />
+    <p>Contraseña</p> @Html.PasswordFor(x => x.Contraseña) @Html.ValidationMessageFor(x => x.Contraseña) <br /> <br />
+    <input type="submit" value="Aceptar" />
+}
+
+

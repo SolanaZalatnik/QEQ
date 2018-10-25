@@ -13,6 +13,7 @@
     @Html.HiddenFor(x => x.Administrador) <br />
     @Html.HiddenFor(x => x.Contraseña) <br />
     <input type='password' name="pin" />
+    <input type="hidden" name="Accion" value="@ViewBag.CrearoEditar" />
     <input type='submit' value=Validar />
 </form>
 

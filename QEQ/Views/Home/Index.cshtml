@@ -4,15 +4,43 @@
 
     ViewBag.Title = "Home Page";
 }
+<style>
+    .QEQ {
+        text-align: center;
+        font-size: 80px;
+        text-shadow: 5px 4px black;
+        color: blue;
+        font-family: 'Adobe Hebrew';
+    }
 
-    <h1>QUIEN ES QUIEN</h1>
+    #Boton a {
+        padding: 5px;
+        font-family: 'Gill Sans MT';
+        background-color: #FFD4FD;
+    }
+</style>
 
-    <h6>@Html.ActionLink("Registrarse", "EditarRegistrar", "Home", new { Accion = "Registrar" })</h6>
-    <h6>@Html.ActionLink("Editar", "EditarRegistrar", "Home", new { Accion = "Editar" })</h6>
-    <h6>@Html.ActionLink("About", "About", "Home", new { Accion = "About" })</h6>
-    <h6>@Html.ActionLink("Instrucciones", "Instrucciones", "Home", new { Accion = "Inst" })</h6>
-<<<<<<< HEAD
-    <h6>@Html.ActionLink("Iniciar Juego", "Inicio", "Game", new { Accion = "Inst" })</h6>
-=======
->>>>>>> c61828964c3f30f4cc7776d73ee9a22d8e624046
 
+<h2 class="QEQ">QUIEN ES QUIEN</h2>
+
+<h6 id="Boton">@Html.ActionLink("Registrarse", "EditarRegistrar", "Home", new { Accion = "Registrar", NombreUsuario = "" }, null)</h6>
+<br />
+@{ if (Session["NombreUsuario"] != null)
+    {
+
+        <h6 id="Boton">@Html.ActionLink("Editar", "EditarRegistrar", "Home", new { Accion = "Editar", NombreUsuario = (Session["NombreUsuario"] != null ? Session["NombreUsuario"] : "") }, null)</h6>
+        <br />
+    }
+}
+
+<h6 id="Boton">@Html.ActionLink("About", "About", "Home", new { Accion = "About" }, null)</h6>
+<br />
+
+<h6 id="Boton">@Html.ActionLink("Instrucciones", "Instrucciones", "Home", new { Accion = "Inst" }, null)</h6>
+<br />
+<h6 id="Boton">@Html.ActionLink("Iniciar juego como invitado", "Index", "Game", new { Accion = "vas a jugar como invitado" }, null)</h6><br />
+@{ if (Session["NombreUsuario"] != null)
+        {
+        <h6 id="Boton">@Html.ActionLink("Iniciar Juego", "Index", "Game", new { Accion = "vas a jugar como " + Session["NombreUsuario"]  }, null)</h6><br />
+        }
+    }

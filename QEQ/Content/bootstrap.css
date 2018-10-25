@@ -6755,3 +6755,17 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.QEQ {
+    text-align: center;
+    font-size: 80px;
+    text-shadow: 5px 4px black;
+    color: blue;
+    font-family: cursive;
+}
+
+button{
+    font-family:'Gill Sans MT';
+    color: aquamarine;
+
+}
