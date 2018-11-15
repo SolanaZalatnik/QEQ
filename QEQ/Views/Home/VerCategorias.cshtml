@@ -1,7 +1,32 @@
-﻿
+﻿@using QEQ.Models
+@model Categorias
 @{
     ViewBag.Title = "VerCategorias";
 }
 
 <h2>Categorias</h2>
+@Html.ActionLink("Insertar", "EdicionCategoria", "Home", new { Accion = "Insertar" }, null)
+<table>
+    <tr>
+        <th>Categoria</th>
+        <th>Ver</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+
+    </tr>
+    @{
+
+        foreach (Categorias MiCategoria in ViewBag.ListCat)
+        {
+            <tr>
+
+                <td> @MiCategoria.Categoria</td>
+                <td>@Html.ActionLink("Ver", "EdicionCategoria", "Home", new { Accion = "Ver", ID = MiCategoria.IDCategoria }, null)</td>
+                <td>@Html.ActionLink("Modificar", "EdicionCategoria", "Home", new { Accion = "Modificar", ID = MiCategoria.IDCategoria }, null)</td>
+                <td>@Html.ActionLink("Eliminar", "EdicionCategoria", "Home", new { Accion = "Eliminar", ID = MiCategoria.IDCategoria}, null)</td>
+            </tr>
+        }
+    }
+
+</table>
 

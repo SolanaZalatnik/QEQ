@@ -8,11 +8,11 @@
 <h3>@ViewBag.Error</h3>
 <form method="post" action='@Url.Action("ValidarDatos", "Home")'>
     @Html.HiddenFor(x => x.IDUsuario)
-    Usuario: @Html.TextBoxFor(x => x.NombUsuario)  <br />
-    Nombre: @Html.TextBoxFor(x => x.Nombre) <br />
-    Apellido: @Html.TextBoxFor(x => x.Apellido) <br />
-    Sos administrador: @Html.CheckBoxFor(x => x.Administrador) <br />
-    Contraseña: @Html.PasswordFor(x => x.Contraseña) <br />
+    Usuario: @Html.TextBoxFor(x => x.NombUsuario) @Html.ValidationMessageFor(x => x.NombUsuario) <br />
+    Nombre: @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre) <br />
+    Apellido: @Html.TextBoxFor(x => x.Apellido) @Html.ValidationMessageFor(x => x.Apellido)<br />
+    Sos administrador: @Html.CheckBoxFor(x => x.Administrador)@Html.ValidationMessageFor(x => x.Administrador) <br />
+    Contraseña: @Html.PasswordFor(x => x.Contraseña) @Html.ValidationMessageFor(x => x.Contraseña)<br />
 
     <input type="hidden" name="Accion" value="@ViewBag.CrearoEditar" />
     <input type='submit' value=Aceptar />

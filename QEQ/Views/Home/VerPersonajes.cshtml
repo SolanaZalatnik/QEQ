@@ -1,7 +1,32 @@
-﻿
+﻿@using QEQ.Models
+@model Personajes
 @{
     ViewBag.Title = "VerPersonajes";
 }
 
 <h2>Personajes</h2>
+@Html.ActionLink("Insertar", "EdicionPersonaje", "Home", new { Accion = "Insertar", Id = -1 }, null)
+<table>
+    <tr>
+        <th>Nombre de personaje</th>
+        <th>Ver</th>
+        <th>Modificar</th>
+        <th>Eliminar</th>
+    </tr>
+    @{
+
+        foreach (Personajes MiPersonaje in ViewBag.LP)
+        {
+            <tr>
+                <td>@MiPersonaje.Nombre</td>
+                <td>@Html.ActionLink("Ver", "EdicionPersonaje", "Home", new { Accion = "Ver", Id = MiPersonaje.IDPersonaje }, null)</td>
+                <td>@Html.ActionLink("Modificar", "EdicionPersonaje", "Home", new { Accion = "Modificar", Id = MiPersonaje.IDPersonaje }, null)</td>
+                <td>@Html.ActionLink("Eliminar", "EdicionPersonaje", "Home", new { Accion = "Eliminar", Id = MiPersonaje.IDPersonaje }, null)</td>
+            </tr>
+        }
+    }
+
+</table>
+
+
 

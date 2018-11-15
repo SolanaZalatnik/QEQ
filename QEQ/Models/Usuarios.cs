@@ -20,7 +20,9 @@ namespace QEQ.Models
         [Required(ErrorMessage = "Nombre de Usuario es un Campo obligatorio")]
         [StringLength(100, MinimumLength = 1, ErrorMessage = "Nombre de usuario inválido")]
         public string NombUsuario { get => _NombUsuario; set => _NombUsuario = value; }
+        [Required(ErrorMessage = "Nombre es un Campo obligatorio")]
         public string Nombre { get => _Nombre; set => _Nombre = value; }
+        [Required(ErrorMessage = "Apellido es un Campo obligatorio")]
         public string Apellido { get => _Apellido; set => _Apellido = value; }
         [Required(ErrorMessage = "Contraseña es un Campo obligatorio")]
         [StringLength(100, MinimumLength = 1, ErrorMessage = "Contraseña inválida")]

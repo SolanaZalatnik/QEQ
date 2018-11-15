@@ -216,6 +216,11 @@
     <Content Include="Views\Home\VerUsuarios.cshtml" />
     <Content Include="Views\Game\Inicio.cshtml" />
     <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Home\EdicionUsuario.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
+    <Content Include="Views\Home\EdicionPregunta.cshtml" />
+    <Content Include="Views\Home\EdicionCategoria.cshtml" />
+    <Content Include="Views\Home\EdicionPersonaje.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

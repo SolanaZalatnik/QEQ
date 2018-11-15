@@ -1,7 +1,31 @@
 ﻿
-@{
-    ViewBag.Title = "VerUsuarios";
-}
+@using QEQ.Models
+@model Usuarios
+    @{
+        ViewBag.Title = "VerUsuarios";
+    }
 
-<h2>Usuarios</h2>
+    <h2>Usuarios</h2>
+    <table>
+        <tr>
+            <th>Nombre de Usuario</th>
+            <th>Ver</th>
+            <th>Modificar</th>
+
+        </tr>
+        @{
+
+            foreach (Usuarios MiUsuario in ViewBag.LU)
+            {
+        <tr>
+          
+            <td> @MiUsuario.NombUsuario</td>
+            <td>@Html.ActionLink("Ver", "EdicionUsuario", "Home", new { Accion = "Ver", NombUsu = MiUsuario.NombUsuario }, null)</td>
+            <td>@Html.ActionLink("Modificar", "EdicionUsuario", "Home", new { Accion = "Modificar", NombUsu = MiUsuario.NombUsuario }, null)</td>
+        </tr>
+            }
+        }
+
+    </table>
+
 

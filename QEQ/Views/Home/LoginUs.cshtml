@@ -14,8 +14,8 @@
         <h1>@ViewBag.UsIncorrecto</h1>
     }
     
-    <p>Nombre usuario</p> @Html.TextBoxFor(x => x.NombUsuario) @Html.ValidationMessageFor(x => x.NombUsuario) <br /> <br />
-    <p>Contraseña</p> @Html.PasswordFor(x => x.Contraseña) @Html.ValidationMessageFor(x => x.Contraseña) <br /> <br />
+    <p>Nombre usuario</p> <input type="text" name="nombre" /><br />
+    <p>Contraseña</p> <input type="password" name="pass" /><br />
     <input type="submit" value="Aceptar" />
 }
 

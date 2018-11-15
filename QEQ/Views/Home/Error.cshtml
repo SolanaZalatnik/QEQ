@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+}
+
+<h2>Error: @ViewBag.Mensaje</h2>
+<form action="@Url.Action(ViewBag.ViewAnterior, ViewBag.ControllerAnterior)" >
+    <input type="submit" name="Volver" value="Volver" />
+</form>
+

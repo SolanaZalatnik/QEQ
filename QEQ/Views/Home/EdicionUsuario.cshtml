@@ -1,0 +1,34 @@
+﻿@using QEQ.Models
+@model Usuarios
+@{
+    ViewBag.Title = "EdicionUsuario";
+}
+
+<h2>@ViewBag.Accion</h2>
+@{
+    switch (ViewBag.Accion)
+    {
+        case "Ver":
+            <form method="get" action='@Url.Action("HomeBackOffice", "Home")'>
+                @Html.DisplayFor(x => x.IDUsuario) <br />
+                Usuario: @Html.DisplayFor(x => x.NombUsuario)<br />
+                Nombre: @Html.DisplayFor(x => x.Nombre)<br />
+                Apellido: @Html.DisplayFor(x => x.Apellido)<br />
+                Administrador: @Html.CheckBoxFor(x => x.Administrador, new { @disabled = "disabled" })<br />
+                <input type='submit' value=Volver />
+            </form>
+            break;
+        case "Modificar":
+            <form method="post" action='@Url.Action("HechoUS", "Home")'>
+                @Html.LabelFor(x => x.IDUsuario) <br />
+                Usuario: @Html.TextBoxFor(x => x.NombUsuario) @Html.ValidationMessageFor(x => x.NombUsuario)<br />
+                Nombre: @Html.TextBoxFor(x => x.Nombre)@Html.ValidationMessageFor(x => x.Nombre)<br />
+                Apellido: @Html.TextBoxFor(x => x.Apellido)@Html.ValidationMessageFor(x => x.Apellido)<br />
+                Contraseña: @Html.TextBoxFor(x => x.Contraseña)@Html.ValidationMessageFor(x => x.Contraseña)<br />
+                Administrador: @Html.CheckBoxFor(x => x.Administrador)<br />
+                <input type="hidden" name="Accion" value="@ViewBag.Accion" />
+                <input type='submit' value="@ViewBag.Accion" name="Seguir" />
+            </form>
+                break;
+        }
+    }

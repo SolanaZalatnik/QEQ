@@ -1,0 +1,45 @@
+﻿@using QEQ.Models
+@model Categorias
+@{
+    ViewBag.Title = "EdicionCategoria";
+}
+
+<h2>@ViewBag.Accion</h2>
+@{
+    string accion = ViewBag.Accion;
+    if (accion == "Ver" || accion == "Eliminar")
+    {
+        <form method="post" action='@Url.Action("HechoCategorias", "Home")'>
+            ID:@Html.TextBoxFor(x => x.IDCategoria, new { @disabled = "disabled" }) <br />
+            Categoria:  @Html.DisplayFor(x => x.Categoria) <br />
+            @Html.HiddenFor(x => x.IDCategoria)
+            <input type="hidden" name="Accion" value="@ViewBag.Accion" />
+            <input type='submit' value=Listo />
+        </form>
+    }
+
+    else
+    {
+        if (accion == "Insertar")
+        {
+        <form method="post" action='@Url.Action("HechoCategorias", "Home")'>
+            Categoria: @Html.TextBoxFor(x => x.Categoria)@Html.ValidationMessageFor(x => x.Categoria) <br />
+            <input type="hidden" name="Accion" value="Insertar" />
+            <input type='submit' value="Insertar" />
+        </form>
+        }
+        else
+        {
+
+        <form method="post" action="@Url.Action("HechoCategorias", "Home")">
+            ID:@Html.TextBoxFor(x => x.IDCategoria, new { @disabled = "disabled" }) <br />
+            Categoria: @Html.TextBoxFor(x => x.Categoria) @Html.ValidationMessageFor(x => x.Categoria)<br />
+            @Html.HiddenFor(x => x.IDCategoria);
+            <input type="hidden" name="Accion" value="Modificar" />
+            <input type='submit' value="Modificar" />
+        </form>
+        }
+    }
+}
+
+

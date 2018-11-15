@@ -1,0 +1,49 @@
+﻿@using QEQ.Models
+@model Personajes
+@{
+    ViewBag.Title = "EdicionPersonaje";
+}
+
+<h2>@ViewBag.Accion</h2>
+@using (Html.BeginForm("HechoPersonajes", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    if (ViewBag.Accion != "Insertar")
+    {<input type="hidden" name="Id" value="@Model.IDPersonaje" />}
+    else
+    { <input type="hidden" name="Id" value="-1" />}
+    string accion = ViewBag.Accion;
+    if (accion == "Insertar")
+    {
+        <p>Nombre: </p>@Html.TextBoxFor(x => x.Nombre)@Html.ValidationMessageFor(x => x.Nombre)
+        <input type="hidden" name="ID" value="-1" />
+        <p>Imagen: </p> @Html.TextBoxFor(x => x.DImagen, new { type = "file" })
+        <p>Categoria: </p> @Html.DropDownListFor(x => x.IDCategoria, new SelectList(ViewBag.Cat, "IDCategoria", "Categoria"))@Html.ValidationMessageFor(x => x.IDCategoria) <br />
+        <input type="hidden" name="accion" value="@accion" />
+        <input type="submit" value="Insertar" />
+    }
+    else if (accion == "Ver" || accion == "Eliminar")
+    {
+        <p>IDPersonaje: </p> @Html.TextBoxFor(x => x.IDPersonaje, new { disabled = "disabled" })
+        <p>Nombre: </p>@Html.TextBoxFor(x => x.Nombre, new { disabled = "disabled" })
+        <p>Imagen: </p><img src="~/Content/@Model.Imagen" />
+        @Html.TextBoxFor(x => x.DImagen, new { type = "file" })
+        <p>Categoria: </p> @Html.DropDownListFor(x => x.IDCategoria, new SelectList(ViewBag.Cat, "IDCategoria", "Categoria"), new { disabled = "disabled" })
+        <input type="hidden" name="accion" value="@accion" />
+        <input type="submit" value="Listo" />
+    }
+    else
+    {
+        <p>Nombre: </p>@Html.TextBoxFor(x => x.Nombre) <br />@Html.ValidationMessageFor(x => x.Nombre)
+        <p>Imagen: </p><img src="~/Content/@Model.Imagen" /> <br />
+        @Html.TextBoxFor(x => x.DImagen, new { type = "file" })
+        <input type="hidden" name="Dire" value="@Model.Imagen" />
+        <input type="hidden" name="accion" value="@accion" />
+        @Html.DropDownListFor(x => x.IDCategoria, new SelectList(ViewBag.Cat, "IDCategoria", "Categoria"))@Html.ValidationMessageFor(x => x.IDCategoria)
+        <input type="submit" value="Modificar" />
+
+    }
+}
+
+
+
+

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace QEQ.Models
 {
@@ -11,6 +12,7 @@ namespace QEQ.Models
         private string _Categoria;
 
         public int IDCategoria { get => _IDCategoria; set => _IDCategoria = value; }
+        [Required(ErrorMessage = "Nombre de Categoria es un Campo obligatorio")]
         public string Categoria { get => _Categoria; set => _Categoria = value; }
 
         public Categorias(int IDCategoria, string Categoria)
